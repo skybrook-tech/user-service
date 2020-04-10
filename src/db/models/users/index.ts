@@ -41,14 +41,5 @@ module.exports = (sequelize: Sequelize) => {
     hash: "password"
   });
 
-  Users.associate = db => {
-    Users.hasMany(db.Projects, {
-      foreignKey: { allowNull: false, name: "userId" },
-      onDelete: "CASCADE",
-      hooks: true,
-      as: "projects"
-    });
-  };
-
   return Users;
 };
